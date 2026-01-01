@@ -3,6 +3,10 @@ import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.comp
 
 export const routes: Routes = [
   {
+    path: 'admin',
+    loadChildren: () => import('./features/admin/admin.routes').then(m => m.ADMIN_ROUTES)
+  },
+  {
     path: '',
     component: MainLayoutComponent,
     children: [
@@ -15,10 +19,6 @@ export const routes: Routes = [
         loadChildren: () => import('./features/recipe/recipe.routes').then(m => m.RECIPE_ROUTES)
       }
     ]
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./features/admin/admin.routes').then(m => m.ADMIN_ROUTES)
   },
   { path: '**', redirectTo: '' }
 ];
