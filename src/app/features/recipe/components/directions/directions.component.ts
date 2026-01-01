@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
   styles: [`
     .directions-section {
       margin-bottom: 48px;
+      width:100%;
     }
     h2 {
       font-size: 36px;
@@ -42,6 +43,9 @@ import { FormsModule } from '@angular/forms';
     }
     .checkbox-container {
       padding-top: 4px;
+    }
+    .content {
+      flex: 1;
     }
     h3 {
       font-size: 24px;

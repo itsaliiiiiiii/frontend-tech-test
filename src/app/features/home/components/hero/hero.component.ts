@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
     <div class="hero-container container mt-8">
       <div class="hero-card flex flex-col lg:flex-row">
         <div class="content flex-1">
-           <div class="badge-pill mb-4 flex items-center gap-2">
+           <div class="badge-pill mb-4 flex items-center gap-4">
              <mat-icon>trending_up</mat-icon> Hot Recipes
            </div>
            <h1>Spicy delicious chicken wings</h1>
@@ -27,7 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
                <mat-icon>restaurant</mat-icon> Chicken
              </div>
            </div>
-           
+           <div class="setSpace"> </div>
            <div class="footer flex justify-between items-center">
              <div class="author flex items-center gap-4">
                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
@@ -63,6 +63,8 @@ import { MatIconModule } from '@angular/material/icon';
     }
     .content {
       padding: 48px;
+      display: flex;
+      flex-direction: column;
     }
     .badge-pill {
       background: white;
@@ -92,6 +94,10 @@ import { MatIconModule } from '@angular/material/icon';
       font-weight: 500;
       
       mat-icon { font-size: 18px; width: 18px; height: 18px; }
+    }
+    .setSpace{
+      flex: 1;
+      height:auto;
     }
     .author img {
       width: 48px;

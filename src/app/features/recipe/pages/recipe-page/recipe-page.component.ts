@@ -33,7 +33,7 @@ import { MatButtonModule } from '@angular/material/button';
            <div>
              <h1>{{ recipe.title }}</h1>
              <div class="meta flex items-center gap-8 mt-4">
-               <div class="author flex items-center gap-2">
+               <div class="author flex items-center gap-4 mx-5">
                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author">
                  <div>
                    <div class="name">{{ recipe.author }}</div>
@@ -41,7 +41,7 @@ import { MatButtonModule } from '@angular/material/button';
                  </div>
                </div>
                <div class="divider"></div>
-               <div class="prep-time flex items-center gap-2">
+               <div class="prep-time flex items-center gap-4">
                  <mat-icon>schedule</mat-icon>
                  <div>
                    <div class="label">PREP TIME</div>
@@ -49,7 +49,7 @@ import { MatButtonModule } from '@angular/material/button';
                  </div>
                </div>
                <div class="divider"></div>
-               <div class="cook-time flex items-center gap-2">
+               <div class="cook-time flex items-center gap-4">
                  <mat-icon>schedule</mat-icon>
                  <div>
                    <div class="label">COOK TIME</div>
@@ -57,7 +57,7 @@ import { MatButtonModule } from '@angular/material/button';
                  </div>
                </div>
                <div class="divider"></div>
-               <div class="category flex items-center gap-2">
+               <div class="category flex items-center gap-4">
                  <mat-icon>restaurant</mat-icon>
                  <div>
                    <div class="val">{{ recipe.category }}</div>
@@ -67,30 +67,25 @@ import { MatButtonModule } from '@angular/material/button';
            </div>
            
            <div class="actions flex gap-4">
-             <button mat-mini-fab class="action-btn"><mat-icon>print</mat-icon></button>
              <button mat-mini-fab class="action-btn"><mat-icon>share</mat-icon></button>
            </div>
         </div>
         
       </div>
       
-      <div class="hero-image-section mb-12 flex gap-8">
-        <div class="main-image flex-2">
-          <img [src]="recipe.image" [alt]="recipe.title">
-          <!-- Play button overlay if video -->
-        </div>
-        <div class="nutrition-section flex-1 ">
-          <app-nutrition [nutrition]="recipe.nutrition"></app-nutrition>
-          <app-other-recipes [recipes]="(otherRecipes$ | async) || []"></app-other-recipes>
-        </div>
-      </div>
-      
-      <p class="description mb-12">
-        {{ recipe.description }}
-      </p>
-      
-      <div class="content-grid grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div class="main-content col-span-2">
+      <div class="content-grid">
+        <div class="main-content">
+          <div class="hero-image-section mb-8">
+            <div class="main-image">
+              <img [src]="recipe.image" [alt]="recipe.title">
+              <!-- Play button overlay if video -->
+            </div>
+          </div>
+          
+          <p class="description mb-8">
+            {{ recipe.description }}
+          </p>
+
           <app-ingredients 
             [ingredients]="recipe.ingredients" 
             [sauceIngredients]="recipe.sauceIngredients || []">
@@ -99,7 +94,10 @@ import { MatButtonModule } from '@angular/material/button';
           <app-directions [directions]="recipe.directions"></app-directions>
         </div>
         
-        
+        <div class="sidebar">
+          <app-nutrition [nutrition]="recipe.nutrition"></app-nutrition>
+          <app-other-recipes [recipes]="(otherRecipes$ | async) || []"></app-other-recipes>
+        </div>
       </div>
 
   `,
@@ -113,9 +111,10 @@ import { MatButtonModule } from '@angular/material/button';
     .gap-12 { gap: 48px; }
     .flex-col { flex-direction: column; }
     
-    h1 { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 48px; margin-bottom: 16px; margin-top: 24px; }
     
     .meta {
+      margin-top: 24px;
       .divider { width: 1px; height: 40px; background: #eee; }
       .label { font-size: 10px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
       .val { font-size: 14px; color: var(--color-text-muted); }
@@ -128,14 +127,22 @@ import { MatButtonModule } from '@angular/material/button';
       background: #E7FAFE;
       color: black;
       box-shadow: none;
+      margin-top: 34px;
     }
     
-    .hero-image-section {
+    .content-grid {
       display: flex;
-      align-items: flex-start;
-      
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .main-content {
+      width: 100%;
+    }
+
+    .hero-image-section {
       .main-image {
-        flex: 2;
+        width: 100%;
         img {
           width: 100%;
           height: 100%;
@@ -144,22 +151,35 @@ import { MatButtonModule } from '@angular/material/button';
           min-height: 400px;
         }
       }
-      .nutrition-section {
-        flex: 1;
-      }
     }
-    
+
+    .sidebar {
+      width: 100%;
+    }
+
     .description {
       font-size: 16px;
       color: var(--color-text-muted);
       line-height: 1.8;
     }
     
-    @media (max-width: 1024px) {
-      .hero-image-section {
-        flex-direction: column;
-        .main-image { width: 100%; }
-        .nutrition-section { width: 100%; }
+    @media (min-width: 1024px) {
+      .content-grid {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+      
+      .main-content {
+        flex: 1;
+        min-width: 0;
+      }
+      
+      .sidebar {
+        width: 380px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 24px;
+        height: fit-content;
       }
     }
   `]

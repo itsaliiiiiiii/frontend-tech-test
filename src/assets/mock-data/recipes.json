@@ -109,6 +109,20 @@
         "checked": false
       }
     ],
+    "sauceIngredients": [
+      {
+        "name": "1/2 cup hot sauce",
+        "checked": false
+      },
+      {
+        "name": "2 tbsp butter, melted",
+        "checked": false
+      },
+      {
+        "name": "1 tsp garlic powder",
+        "checked": false
+      }
+    ],
     "directions": [
       {
         "step": 1,
@@ -162,6 +176,20 @@
       },
       {
         "name": "Lettuce and tomato",
+        "checked": false
+      }
+    ],
+    "sauceIngredients": [
+      {
+        "name": "2 tbsp mayonnaise",
+        "checked": false
+      },
+      {
+        "name": "1 tbsp ketchup",
+        "checked": false
+      },
+      {
+        "name": "1 tsp pickle relish",
         "checked": false
       }
     ],

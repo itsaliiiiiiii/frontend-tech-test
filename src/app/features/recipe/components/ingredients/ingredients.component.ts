@@ -46,10 +46,16 @@ import { FormsModule } from '@angular/forms';
     h3 {
       font-size: 24px;
       margin-bottom: 24px;
+      margin-top: 24px;
     }
     .ingredient-row {
+      width: 100%;
       padding: 16px 0;
       border-bottom: 1px solid #eee;
+    }
+    mat-checkbox {
+      width: 100%;
+      display: flex;
     }
     .checked {
       text-decoration: line-through;
