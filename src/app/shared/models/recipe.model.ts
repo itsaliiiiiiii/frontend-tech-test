@@ -39,8 +39,9 @@ export interface Recipe {
 }
 
 export interface Category {
-    id: string;
+    id?: string;
     name: string;
     image: string;
-    color: string; // e.g., specific gradient or background color class
+    class?: string;
+    color?: string; // e.g., specific gradient or background color class
 }

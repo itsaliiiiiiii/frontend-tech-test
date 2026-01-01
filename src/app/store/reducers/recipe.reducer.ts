@@ -37,18 +37,54 @@ export const recipeReducer = createReducer(
     ...state,
     selectedRecipeId: id
   })),
-  on(RecipeActions.addRecipe, (state, { recipe }) => ({
+  // Add Recipe
+  on(RecipeActions.addRecipe, state => ({
     ...state,
-    recipes: [...state.recipes, recipe]
+    loading: true,
+    error: null
   })),
-  on(RecipeActions.updateRecipe, (state, { recipe }) => ({
+  on(RecipeActions.addRecipeSuccess, (state, { recipe }) => ({
+    ...state,
+    recipes: [...state.recipes, recipe],
+    loading: false
+  })),
+  on(RecipeActions.addRecipeFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
+  })),
+  // Update Recipe
+  on(RecipeActions.updateRecipe, state => ({
+    ...state,
+    loading: true,
+    error: null
+  })),
+  on(RecipeActions.updateRecipeSuccess, (state, { recipe }) => ({
     ...state,
     recipes: state.recipes.map(r => r.id === recipe.id ? recipe : r),
-    selectedRecipeId: state.selectedRecipeId === recipe.id ? recipe.id : state.selectedRecipeId
+    selectedRecipeId: state.selectedRecipeId === recipe.id ? recipe.id : state.selectedRecipeId,
+    loading: false
   })),
-  on(RecipeActions.deleteRecipe, (state, { id }) => ({
+  on(RecipeActions.updateRecipeFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
+  })),
+  // Delete Recipe
+  on(RecipeActions.deleteRecipe, state => ({
+    ...state,
+    loading: true,
+    error: null
+  })),
+  on(RecipeActions.deleteRecipeSuccess, (state, { id }) => ({
     ...state,
     recipes: state.recipes.filter(r => r.id !== id),
-    selectedRecipeId: state.selectedRecipeId === id ? null : state.selectedRecipeId
+    selectedRecipeId: state.selectedRecipeId === id ? null : state.selectedRecipeId,
+    loading: false
+  })),
+  on(RecipeActions.deleteRecipeFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
   }))
 );
