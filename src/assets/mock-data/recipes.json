@@ -1,0 +1,274 @@
+[
+  {
+    "id": "1",
+    "title": "Health Japanese Fried Rice",
+    "image": "https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    "prepTime": 15,
+    "cookTime": 15,
+    "servings": 2,
+    "category": "Chicken",
+    "author": "John Smith",
+    "date": "2022-03-15",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "nutrition": {
+      "calories": 219.9,
+      "totalFat": 10.7,
+      "protein": 7.9,
+      "carbohydrate": 22.3,
+      "cholesterol": 37.4
+    },
+    "ingredients": [
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": true
+      },
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": false
+      },
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": false
+      },
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": false
+      },
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": false
+      }
+    ],
+    "sauceIngredients": [
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": false
+      },
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": false
+      },
+      {
+        "name": "Lorem ipsum dolor sit amet",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+        "image": "https://images.unsplash.com/photo-1507048331197-7d4ac2b7aa95?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      },
+      {
+        "step": 2,
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+      },
+      {
+        "step": 3,
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+      }
+    ],
+    "isFeatured": false
+  },
+  {
+    "id": "2",
+    "title": "Spicy delicious chicken wings",
+    "image": "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 15,
+    "cookTime": 15,
+    "servings": 4,
+    "category": "Chicken",
+    "author": "John Smith",
+    "date": "2022-03-15",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "nutrition": {
+      "calories": 350,
+      "totalFat": 15,
+      "protein": 20,
+      "carbohydrate": 5,
+      "cholesterol": 50
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": true
+  },
+  {
+    "id": "3",
+    "title": "Big and Juicy Wagyu Beef Cheeseburger",
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 10,
+    "servings": 1,
+    "category": "Snack",
+    "author": "Jane Doe",
+    "date": "2022-03-10",
+    "description": "Delicious wagyu burger.",
+    "nutrition": {
+      "calories": 600,
+      "totalFat": 30,
+      "protein": 30,
+      "carbohydrate": 40,
+      "cholesterol": 80
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  },
+  {
+    "id": "4",
+    "title": "Fresh Lime Roasted Salmon with Ginger Sauce",
+    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 20,
+    "servings": 2,
+    "category": "Fish",
+    "author": "Alice",
+    "date": "2022-03-12",
+    "description": "Fresh salmon recipe.",
+    "nutrition": {
+      "calories": 400,
+      "totalFat": 20,
+      "protein": 35,
+      "carbohydrate": 5,
+      "cholesterol": 60
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  },
+  {
+    "id": "5",
+    "title": "Strawberry Oatmeal Pancake with Honey Syrup",
+    "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 10,
+    "servings": 2,
+    "category": "Breakfast",
+    "author": "Bob",
+    "date": "2022-03-14",
+    "description": "Sweet breakfast.",
+    "nutrition": {
+      "calories": 300,
+      "totalFat": 10,
+      "protein": 8,
+      "carbohydrate": 50,
+      "cholesterol": 20
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  },
+  {
+    "id": "6",
+    "title": "Fresh and Healthy Mixed Mayonnaise Salad",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 0,
+    "servings": 2,
+    "category": "Healthy",
+    "author": "Charlie",
+    "date": "2022-03-16",
+    "description": "Healthy salad.",
+    "nutrition": {
+      "calories": 150,
+      "totalFat": 12,
+      "protein": 2,
+      "carbohydrate": 8,
+      "cholesterol": 5
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  },
+  {
+    "id": "7",
+    "title": "Chicken Meatballs with Cream Cheese",
+    "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 20,
+    "servings": 4,
+    "category": "Meat",
+    "author": "David",
+    "date": "2022-03-18",
+    "description": "Creamy meatballs.",
+    "nutrition": {
+      "calories": 450,
+      "totalFat": 25,
+      "protein": 25,
+      "carbohydrate": 10,
+      "cholesterol": 70
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  },
+  {
+    "id": "8",
+    "title": "Fruity Pancake with Orange & Blueberry",
+    "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 10,
+    "servings": 2,
+    "category": "Sweet",
+    "author": "Eve",
+    "date": "2022-03-20",
+    "description": "Fruity pancake.",
+    "nutrition": {
+      "calories": 320,
+      "totalFat": 10,
+      "protein": 8,
+      "carbohydrate": 55,
+      "cholesterol": 20
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  },
+  {
+    "id": "9",
+    "title": "The Best Easy One Pot Chicken and Rice",
+    "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 40,
+    "servings": 4,
+    "category": "Snack",
+    "author": "Frank",
+    "date": "2022-03-22",
+    "description": "Easy dinner.",
+    "nutrition": {
+      "calories": 500,
+      "totalFat": 20,
+      "protein": 30,
+      "carbohydrate": 45,
+      "cholesterol": 60
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  },
+  {
+    "id": "10",
+    "title": "The Creamiest Creamy Chicken and Bacon Pasta",
+    "image": "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "prepTime": 30,
+    "cookTime": 20,
+    "servings": 3,
+    "category": "Noodles",
+    "author": "Grace",
+    "date": "2022-03-24",
+    "description": "Rich pasta.",
+    "nutrition": {
+      "calories": 650,
+      "totalFat": 35,
+      "protein": 25,
+      "carbohydrate": 50,
+      "cholesterol": 90
+    },
+    "ingredients": [],
+    "directions": [],
+    "isFeatured": false
+  }
+]

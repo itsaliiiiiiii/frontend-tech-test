@@ -1,0 +1,150 @@
+/* Global Styles */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+  --color-primary: #000000;
+  --color-secondary: #000000;
+  /* Darker text */
+  --color-text-muted: #666666;
+  /* Grey text */
+  --color-background: #ffffff;
+  --color-background-light: #E7FAFE;
+  /* Light blue background */
+  --color-border: #E0E0E0;
+  --color-accent: #FF6347;
+  /* Tomato red/orange for some highlights? */
+
+  /* Font */
+  --font-family-base: 'Inter', sans-serif;
+  --font-family-serif: 'Playfair Display', serif;
+  /* For fancy titles if needed */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  color: var(--color-primary);
+  background-color: var(--color-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+/* Material Overrides */
+.mat-mdc-card {
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  /* Flat design mostly */
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #333;
+  }
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.badge-red {
+    background: #FFEDEE;
+    color: #FF4D4F;
+  }
+
+  &.badge-green {
+    background: #E6F7ED;
+    color: #28A745;
+  }
+
+  &.badge-blue {
+    background: #E6F7FF;
+    color: #1890FF;
+  }
+}
