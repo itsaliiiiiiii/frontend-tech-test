@@ -104,6 +104,32 @@ p {
   }
 }
 
+/* Custom Checkbox Styles */
+.custom-checkbox {
+  --mdc-checkbox-selected-focus-icon-color: #000;
+  --mdc-checkbox-selected-hover-icon-color: #000;
+  --mdc-checkbox-selected-icon-color: #000;
+  --mdc-checkbox-selected-pressed-icon-color: #000;
+  --mdc-checkbox-unselected-focus-icon-color: #000;
+  --mdc-checkbox-unselected-hover-icon-color: #000;
+  --mdc-checkbox-unselected-icon-color: #000;
+  --mdc-checkbox-unselected-pressed-icon-color: #000;
+
+  .mdc-checkbox {
+    .mdc-checkbox__background {
+      border-radius: 50% !important;
+      border-color: #000 !important;
+    }
+  }
+
+  &.mat-mdc-checkbox-checked {
+    .mdc-checkbox__background {
+      background-color: #000 !important;
+      border-color: #000 !important;
+    }
+  }
+}
+
 /* Material Overrides */
 .mat-mdc-card {
   border-radius: 16px !important;

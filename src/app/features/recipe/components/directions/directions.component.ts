@@ -14,9 +14,9 @@ import { FormsModule } from '@angular/forms';
       
       <div class="step-row" *ngFor="let step of directions; let last = last">
         <div class="checkbox-container">
-           <mat-checkbox class="custom-checkbox" [(ngModel)]="step.checked"></mat-checkbox>
+           <mat-checkbox class="custom-checkbox" [(ngModel)]="step.checked" color="primary"></mat-checkbox>
         </div>
-        <div class="content">
+        <div class="content" [class.checked]="step.checked">
           <h3>{{ step.step }}. {{ step.title }}</h3>
           <p class="description">{{ step.description }}</p>
           <div class="image-container mt-4" *ngIf="step.image">
@@ -47,6 +47,10 @@ import { FormsModule } from '@angular/forms';
       font-size: 24px;
       margin-bottom: 16px;
       font-family: var(--font-family-serif);
+    }
+    .checked h3, .checked .description {
+      text-decoration: line-through;
+      opacity: 0.5;
     }
     .description {
       color: var(--color-text-muted);

@@ -91,8 +91,42 @@
       "carbohydrate": 5,
       "cholesterol": 50
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "2 lbs chicken wings",
+        "checked": false
+      },
+      {
+        "name": "1 tbsp chili powder",
+        "checked": false
+      },
+      {
+        "name": "1 tsp garlic powder",
+        "checked": false
+      },
+      {
+        "name": "1/2 cup hot sauce",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Season the wings",
+        "description": "Toss chicken wings with chili powder, garlic powder, salt, and pepper in a large bowl until evenly coated.",
+        "image": "https://images.unsplash.com/photo-1527477396000-64ca9c00173e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+      },
+      {
+        "step": 2,
+        "title": "Bake",
+        "description": "Preheat oven to 400°F (200°C). Arrange wings on a baking sheet and bake for 45-50 minutes until crispy."
+      },
+      {
+        "step": 3,
+        "title": "Sauce",
+        "description": "Toss the baked wings in hot sauce before serving."
+      }
+    ],
     "isFeatured": true
   },
   {
@@ -113,8 +147,36 @@
       "carbohydrate": 40,
       "cholesterol": 80
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "1/2 lb Wagyu beef patty",
+        "checked": false
+      },
+      {
+        "name": "1 brioche bun",
+        "checked": false
+      },
+      {
+        "name": "2 slices cheddar cheese",
+        "checked": false
+      },
+      {
+        "name": "Lettuce and tomato",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Grill Patty",
+        "description": "Season beef patty with salt and pepper. Grill over high heat for 3-4 minutes per side for medium-rare."
+      },
+      {
+        "step": 2,
+        "title": "Assemble",
+        "description": "Toast the bun. Place lettuce, tomato, patty, and cheese on the bun. Add condiments if desired."
+      }
+    ],
     "isFeatured": false
   },
   {
@@ -135,8 +197,36 @@
       "carbohydrate": 5,
       "cholesterol": 60
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "2 salmon fillets",
+        "checked": false
+      },
+      {
+        "name": "1 tbsp fresh ginger, grated",
+        "checked": false
+      },
+      {
+        "name": "2 limes, sliced",
+        "checked": false
+      },
+      {
+        "name": "1 tbsp soy sauce",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Marinate",
+        "description": "Mix ginger, soy sauce, and lime juice. Marinate salmon for 15 minutes."
+      },
+      {
+        "step": 2,
+        "title": "Roast",
+        "description": "Place salmon on baking sheet with lime slices. Roast at 400°F for 12-15 minutes."
+      }
+    ],
     "isFeatured": false
   },
   {
@@ -157,8 +247,41 @@
       "carbohydrate": 50,
       "cholesterol": 20
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "1 cup rolled oats",
+        "checked": false
+      },
+      {
+        "name": "1 cup milk",
+        "checked": false
+      },
+      {
+        "name": "1 egg",
+        "checked": false
+      },
+      {
+        "name": "Fresh strawberries",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Make Batter",
+        "description": "Blend oats into flour. Mix with milk, egg, and baking powder."
+      },
+      {
+        "step": 2,
+        "title": "Cook",
+        "description": "Pour batter onto hot griddle. Cook until bubbles form, then flip."
+      },
+      {
+        "step": 3,
+        "title": "Serve",
+        "description": "Top with fresh strawberries and honey syrup."
+      }
+    ],
     "isFeatured": false
   },
   {
@@ -179,8 +302,36 @@
       "carbohydrate": 8,
       "cholesterol": 5
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "Mixed greens",
+        "checked": false
+      },
+      {
+        "name": "Cherry tomatoes",
+        "checked": false
+      },
+      {
+        "name": "Cucumber, sliced",
+        "checked": false
+      },
+      {
+        "name": "2 tbsp mayonnaise",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Chop",
+        "description": "Wash and chop all vegetables."
+      },
+      {
+        "step": 2,
+        "title": "Mix",
+        "description": "Toss vegetables in a large bowl. Stir in mayonnaise and season with salt/pepper."
+      }
+    ],
     "isFeatured": false
   },
   {
@@ -201,8 +352,36 @@
       "carbohydrate": 10,
       "cholesterol": 70
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "1 lb ground chicken",
+        "checked": false
+      },
+      {
+        "name": "1/2 cup breadcrumbs",
+        "checked": false
+      },
+      {
+        "name": "1/4 cup cream cheese",
+        "checked": false
+      },
+      {
+        "name": "1 egg",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Mix",
+        "description": "Combine chicken, breadcrumbs, egg, and spices. Form into balls."
+      },
+      {
+        "step": 2,
+        "title": "Cook",
+        "description": "Pan fry meatballs until browned. Add cream cheese sauce and simmer."
+      }
+    ],
     "isFeatured": false
   },
   {
@@ -223,8 +402,36 @@
       "carbohydrate": 55,
       "cholesterol": 20
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "Pancake mix",
+        "checked": false
+      },
+      {
+        "name": "Blueberries",
+        "checked": false
+      },
+      {
+        "name": "Orange slices",
+        "checked": false
+      },
+      {
+        "name": "Maple syrup",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Prepare Batter",
+        "description": "Prepare pancake batter according to package instructions. Fold in blueberries."
+      },
+      {
+        "step": 2,
+        "title": "Cook",
+        "description": "Cook pancakes on a griddle. Serve topped with orange slices and syrup."
+      }
+    ],
     "isFeatured": false
   },
   {
@@ -245,8 +452,36 @@
       "carbohydrate": 45,
       "cholesterol": 60
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "4 chicken thighs",
+        "checked": false
+      },
+      {
+        "name": "1 cup jasmine rice",
+        "checked": false
+      },
+      {
+        "name": "2 cups chicken broth",
+        "checked": false
+      },
+      {
+        "name": "1 onion, diced",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Sear Chicken",
+        "description": "Sear chicken thighs in a pot until golden. Remove."
+      },
+      {
+        "step": 2,
+        "title": "Cook Rice",
+        "description": "Sauté onion, add rice and broth. Return chicken to pot. Simmer covered for 20 mins."
+      }
+    ],
     "isFeatured": false
   },
   {
@@ -267,8 +502,36 @@
       "carbohydrate": 50,
       "cholesterol": 90
     },
-    "ingredients": [],
-    "directions": [],
+    "ingredients": [
+      {
+        "name": "8 oz pasta",
+        "checked": false
+      },
+      {
+        "name": "2 chicken breasts, diced",
+        "checked": false
+      },
+      {
+        "name": "4 slices bacon",
+        "checked": false
+      },
+      {
+        "name": "1 cup heavy cream",
+        "checked": false
+      }
+    ],
+    "directions": [
+      {
+        "step": 1,
+        "title": "Cook Meat",
+        "description": "Cook bacon until crispy. Remove. Cook chicken in bacon fat."
+      },
+      {
+        "step": 2,
+        "title": "Sauce",
+        "description": "Add cream and parmesan to pan. Toss with cooked pasta, chicken, and bacon."
+      }
+    ],
     "isFeatured": false
   }
 ]
