@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,8 +13,8 @@ import { Recipe } from '../../models/recipe.model';
     <div class="recipe-card" *ngIf="recipe">
       <div class="image-container">
         <img [src]="recipe.image" [alt]="recipe.title">
-        <button class="favorite-btn">
-          <mat-icon>favorite_border</mat-icon>
+        <button class="favorite-btn" (click)="toggleLike($event)" [class.active]="isLiked">
+          <mat-icon>{{ isLiked ? 'favorite' : 'favorite_border' }}</mat-icon>
         </button>
       </div>
       <div class="content">
@@ -92,6 +92,43 @@ import { Recipe } from '../../models/recipe.model';
     }
   `]
 })
-export class RecipeCardComponent {
+export class RecipeCardComponent implements OnInit {
   @Input() recipe!: Recipe;
+  isLiked = false;
+
+  ngOnInit() {
+    this.checkLikeStatus();
+  }
+
+  toggleLike(event: Event) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.isLiked = !this.isLiked;
+    this.updateLocalStorage();
+  }
+
+  private checkLikeStatus() {
+    if (!this.recipe) return;
+    const liked = localStorage.getItem('liked_recipes');
+    if (liked) {
+      const likedIds = JSON.parse(liked);
+      this.isLiked = likedIds.includes(this.recipe.id);
+    }
+  }
+
+  private updateLocalStorage() {
+    if (!this.recipe) return;
+    const liked = localStorage.getItem('liked_recipes');
+    let likedIds = liked ? JSON.parse(liked) : [];
+
+    if (this.isLiked) {
+      if (!likedIds.includes(this.recipe.id)) {
+        likedIds.push(this.recipe.id);
+      }
+    } else {
+      likedIds = likedIds.filter((id: string) => id !== this.recipe.id);
+    }
+
+    localStorage.setItem('liked_recipes', JSON.stringify(likedIds));
+  }
 }

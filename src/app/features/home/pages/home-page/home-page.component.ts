@@ -13,33 +13,17 @@ import { RecipeListComponent } from '../../components/recipe-list/recipe-list.co
     <section class="categories-section container my-12">
       <div class="flex justify-between items-center mb-8">
         <h2>Categories</h2>
-        <button class="view-all-btn">View All Categories</button>
+        <button class="view-all-btn" (click)="showAll = !showAll">
+          {{ showAll ? 'Show Less' : 'View All Categories' }}
+        </button>
       </div>
       
-      <div class="categories-grid flex gap-8">
-        <div class="category-card card-1">
-          <img src="https://img.icons8.com/color/96/sushi.png" alt="Breakfast">
-          <span>Breakfast</span>
-        </div>
-        <div class="category-card card-2">
-          <img src="https://img.icons8.com/color/96/vegan-food.png" alt="Vegan">
-          <span>Vegan</span>
-        </div>
-        <div class="category-card card-3">
-          <img src="https://img.icons8.com/color/96/steak-medium.png" alt="Meat">
-          <span>Meat</span>
-        </div>
-        <div class="category-card card-4">
-          <img src="https://img.icons8.com/color/96/cake.png" alt="Dessert">
-          <span>Dessert</span>
-        </div>
-        <div class="category-card card-5">
-          <img src="https://img.icons8.com/color/96/sandwich.png" alt="Lunch">
-          <span>Lunch</span>
-        </div>
-        <div class="category-card card-6">
-          <img src="https://img.icons8.com/color/96/chocolate-bar.png" alt="Chocolate">
-          <span>Chocolate</span>
+      <div class="categories-grid flex gap-8" [class.expanded]="showAll">
+        <div class="category-card" 
+             *ngFor="let category of categories"
+             [ngClass]="category.class">
+          <img [src]="category.image" [alt]="category.name">
+          <span>{{ category.name }}</span>
         </div>
       </div>
     </section>
@@ -58,16 +42,22 @@ import { RecipeListComponent } from '../../components/recipe-list/recipe-list.co
     }
     .categories-grid {
       overflow-x: auto;
-      padding-bottom: 20px; /* Space for scrollbar or shadow */
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none;  /* IE 10+ */
+      padding-bottom: 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       
       &::-webkit-scrollbar { 
-        display: none;  /* Chrome Safari */
+        display: none;
+      }
+
+      &.expanded {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        justify-content: center;
       }
     }
     .category-card {
-      min-width: 160px; /* Ensure cards don't shrink too small */
+      min-width: 160px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -93,7 +83,6 @@ import { RecipeListComponent } from '../../components/recipe-list/recipe-list.co
         font-size: 16px;
       }
     }
-    /* Gradients or colors for backgrounds */
     .card-1 { background: linear-gradient(180deg, rgba(112, 130, 70, 0) 0%, rgba(112, 130, 70, 0.1) 100%); }
     .card-2 { background: linear-gradient(180deg, rgba(108, 198, 68, 0) 0%, rgba(108, 198, 68, 0.1) 100%); }
     .card-3 { background: linear-gradient(180deg, rgba(204, 38, 27, 0) 0%, rgba(204, 38, 27, 0.1) 100%); }
@@ -102,4 +91,22 @@ import { RecipeListComponent } from '../../components/recipe-list/recipe-list.co
     .card-6 { background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%); }
   `]
 })
-export class HomePageComponent { }
+export class HomePageComponent {
+  showAll = false;
+
+  categories = [
+    { name: 'Breakfast', image: 'https://img.icons8.com/color/96/sushi.png', class: 'card-1' },
+    { name: 'Vegan', image: 'https://img.icons8.com/color/96/vegan-food.png', class: 'card-2' },
+    { name: 'Meat', image: 'https://img.icons8.com/color/96/steak-medium.png', class: 'card-3' },
+    { name: 'Dessert', image: 'https://img.icons8.com/color/96/cake.png', class: 'card-4' },
+    { name: 'Lunch', image: 'https://img.icons8.com/color/96/sandwich.png', class: 'card-5' },
+    { name: 'Chocolate', image: 'https://img.icons8.com/color/96/chocolate-bar.png', class: 'card-6' },
+    { name: 'Breakfast', image: 'https://img.icons8.com/color/96/sushi.png', class: 'card-1' },
+    { name: 'Breakfast', image: 'https://img.icons8.com/color/96/sushi.png', class: 'card-1' },
+    { name: 'Vegan', image: 'https://img.icons8.com/color/96/vegan-food.png', class: 'card-2' },
+    { name: 'Meat', image: 'https://img.icons8.com/color/96/steak-medium.png', class: 'card-3' },
+    { name: 'Dessert', image: 'https://img.icons8.com/color/96/cake.png', class: 'card-4' },
+    { name: 'Lunch', image: 'https://img.icons8.com/color/96/sandwich.png', class: 'card-5' },
+    { name: 'Chocolate', image: 'https://img.icons8.com/color/96/chocolate-bar.png', class: 'card-6' }
+  ];
+}

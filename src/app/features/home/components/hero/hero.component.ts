@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -45,9 +45,9 @@ import { MatIconModule } from '@angular/material/icon';
         
         <div class="image-section flex-1">
           <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chicken Wings">
-          <div class="badge-circle">
-            <mat-icon>verified</mat-icon>
-          </div>
+          <button class="badge-circle" (click)="toggleLike()" [class.active]="isLiked">
+            <mat-icon>{{ isLiked ? 'favorite' : 'favorite_border' }}</mat-icon>
+          </button>
         </div>
       </div>
     </div>
@@ -127,12 +127,64 @@ import { MatIconModule } from '@angular/material/icon';
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      background: black; /* Or image from design */
-      color: white;
+      background: white;
+      color: #ccc;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+      &.active {
+        color: #FF6347;
+      }
+      
+      mat-icon {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   `]
 })
-export class HomeHeroComponent { }
+export class HomeHeroComponent implements OnInit {
+  isLiked = false;
+  private readonly HERO_ID = 'hero-featured-1';
+
+  ngOnInit() {
+    this.checkLikeStatus();
+  }
+
+  toggleLike() {
+    this.isLiked = !this.isLiked;
+    this.updateLocalStorage();
+  }
+
+  private checkLikeStatus() {
+    const liked = localStorage.getItem('liked_recipes');
+    if (liked) {
+      const likedIds = JSON.parse(liked);
+      this.isLiked = likedIds.includes(this.HERO_ID);
+    }
+  }
+
+  private updateLocalStorage() {
+    const liked = localStorage.getItem('liked_recipes');
+    let likedIds = liked ? JSON.parse(liked) : [];
+
+    if (this.isLiked) {
+      if (!likedIds.includes(this.HERO_ID)) {
+        likedIds.push(this.HERO_ID);
+      }
+    } else {
+      likedIds = likedIds.filter((id: string) => id !== this.HERO_ID);
+    }
+
+    localStorage.setItem('liked_recipes', JSON.stringify(likedIds));
+  }
+}
