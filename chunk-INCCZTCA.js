@@ -1,0 +1,1 @@
+import{H as t,I as p}from"./chunk-EWHKNHLW.js";var c=p("recipes"),o=t(c,e=>e.recipes),n=t(c,e=>e.loading),R=t(c,e=>e.error),l=t(c,e=>e.selectedRecipeId),a=t(o,l,(e,r)=>r&&e&&e.find(i=>i.id===r)||null);export{o as a,n as b,R as c,a as d};
