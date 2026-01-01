@@ -1,59 +1,87 @@
-# Frontend
+# Digital Speak Recipe App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.12.
+A modern, responsive recipe management application built with **Angular 18+** and **NgRx**. This application allows users to explore recipes by category, view detailed cooking instructions, and manages content via a dedicated Admin Panel.
 
-## Development server
+## 🚀 Features
 
-To start a local development server, run:
+### 🏠 Public Interface
+- **Recipe Discovery**: Browse a curated list of recipes with a beautiful grid layout.
+- **Category Filtering**: 
+  - Toggle between a summarized view and a full list of categories.
+  - Instantly filter recipes by selecting a category (e.g., Breakfast, Vegan, Meat).
+- **Recipe Details**: View comprehensive recipe information including:
+  - Preparation & Cook times.
+  - Nutrition facts.
+  - Ingredients list.
+  - Step-by-step directions with images.
 
-```bash
-ng serve
+### 🛡️ Admin Panel
+- **Dashboard**: Manage the recipe library from a centralized table view.
+- **Create & Edit**: 
+  - Dynamic form to add new recipes.
+  - Add/Remove ingredients and cooking steps dynamically.
+  - Edit existing recipes.
+- **Delete**: Remove recipes from the collection.
+- **State Management**: All actions are handled via NgRx for predictable state changes.
+
+## 🛠️ Tech Stack
+
+- **Framework**: Angular (Standalone Components)
+- **State Management**: NgRx (Store, Effects, Actions, Reducers)
+- **Styling**: SCSS, Tailwind CSS (Utility classes), Angular Material (UI Components)
+- **Routing**: Angular Router (Lazy loading for feature modules)
+
+## 📦 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/itsaliiiiiiii/frontend-tech-test.git
+   cd frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   ng serve
+   ```
+
+4. **Open the application**
+   Navigate to `http://localhost:4200/` in your browser.
+
+## 📖 Usage Guide
+
+### For Users
+1. **Home Page**: Scroll down to see the "Categories" section.
+2. **Filter**: Click "View All Categories" to expand the list. Click a specific category card (e.g., "Vegan") to filter the recipes below. Click it again to clear the filter.
+3. **View Recipe**: Click on any recipe card to view its full details.
+
+### For Administrators
+1. **Access Admin Panel**: Navigate to `http://localhost:4200/admin`.
+2. **Add Recipe**: Click the "Add New Recipe" button. Fill in the details, add ingredients and steps using the dynamic "+" buttons.
+3. **Edit/Delete**: Use the action buttons in the recipe table to modify or remove entries.
+
+## 📂 Project Structure
+
+```
+src/app/
+├── core/           # Singleton services, layout components (Header, Main)
+├── features/       # Feature modules
+│   ├── admin/      # Admin pages (Recipe Management, Forms)
+│   ├── home/       # Home page (Hero, Recipe List, Categories)
+│   └── recipe/     # Recipe details page
+├── shared/         # Reusable components (Recipe Card), models, pipes
+├── store/          # NgRx State (Actions, Reducers, Effects, Selectors)
+└── assets/         # Mock data (JSON), images
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
