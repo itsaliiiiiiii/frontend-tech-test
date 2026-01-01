@@ -1,0 +1,43 @@
+<div class="hero-container container mt-8">
+  <div class="hero-card flex flex-col lg:flex-row">
+    <div class="content flex-1">
+       <div class="badge-pill mb-4 flex items-center gap-4">
+         <mat-icon>trending_up</mat-icon> Hot Recipes
+       </div>
+       <h1>Spicy delicious chicken wings</h1>
+       <p class="description">
+         Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq.
+       </p>
+       
+       <div class="meta flex items-center gap-4 mb-8">
+         <div class="chip">
+           <mat-icon>schedule</mat-icon> 30 Minutes
+         </div>
+         <div class="chip">
+           <mat-icon>restaurant</mat-icon> Chicken
+         </div>
+       </div>
+       <div class="setSpace"> </div>
+       <div class="footer flex justify-between items-center">
+         <div class="author flex items-center gap-4">
+           <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
+           <div>
+             <div class="name">John Smith</div>
+             <div class="date">15 March 2022</div>
+           </div>
+         </div>
+         
+         <button mat-flat-button color="primary" class="view-btn">
+           View Recipes <mat-icon>play_circle_filled</mat-icon>
+         </button>
+       </div>
+    </div>
+    
+    <div class="image-section flex-1">
+      <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chicken Wings">
+      <button class="badge-circle" (click)="toggleLike()" [class.active]="isLiked">
+        <mat-icon>{{ isLiked ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

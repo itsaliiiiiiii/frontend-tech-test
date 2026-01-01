@@ -1,0 +1,8 @@
+[
+  { "name": "Breakfast", "image": "https://img.icons8.com/color/96/sushi.png", "class": "card-1" },
+  { "name": "Vegan", "image": "https://img.icons8.com/color/96/vegan-food.png", "class": "card-2" },
+  { "name": "Meat", "image": "https://img.icons8.com/color/96/steak-medium.png", "class": "card-3" },
+  { "name": "Dessert", "image": "https://img.icons8.com/color/96/cake.png", "class": "card-4" },
+  { "name": "Lunch", "image": "https://img.icons8.com/color/96/sandwich.png", "class": "card-5" },
+  { "name": "Chocolate", "image": "https://img.icons8.com/color/96/chocolate-bar.png", "class": "card-6" }
+]

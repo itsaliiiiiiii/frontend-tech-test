@@ -1,0 +1,27 @@
+.ingredients-section {
+  margin-bottom: 48px;
+}
+h2 {
+  font-size: 36px;
+  margin-bottom: 32px;
+}
+h3 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  margin-top: 24px;
+}
+.ingredient-row {
+  width: 100%;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+mat-checkbox {
+  width: 100%;
+  display: flex;
+}
+.checked {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+/* Customizing checkbox color requires deep selector or theme override, relying on default accent for now or global styles */

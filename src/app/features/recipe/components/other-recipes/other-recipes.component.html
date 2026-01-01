@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <h3  >Other Recipe</h3>
+  <div class="other-recipes-list flex flex-col gap-8">
+     <div class="other-recipe-card flex gap-6" *ngFor="let r of recipes">
+       <img [src]="r.image" class="thumb">
+       <div class="info">
+         <h4>{{ r.title }}</h4>
+         <div class="author">By {{ r.author }}</div>
+       </div>
+     </div>
+  </div>
+</div>

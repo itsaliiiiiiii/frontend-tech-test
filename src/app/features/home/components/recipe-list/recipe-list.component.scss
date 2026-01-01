@@ -1,0 +1,17 @@
+.recipe-list-container {
+  padding: 48px 16px;
+}
+.header {
+  margin-bottom: 48px;
+  text-align: center;
+  
+  h2 {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--color-text-muted);
+  }
+}

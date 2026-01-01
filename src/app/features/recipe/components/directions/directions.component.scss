@@ -1,0 +1,42 @@
+.directions-section {
+  margin-bottom: 48px;
+  width:100%;
+}
+h2 {
+  font-size: 36px;
+  margin-bottom: 32px;
+}
+.step-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.checkbox-container {
+  padding-top: 4px;
+}
+.content {
+  flex: 1;
+}
+h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-family: var(--font-family-serif);
+}
+.checked h3, .checked .description {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.description {
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+.image-container img {
+  width: 100%;
+  border-radius: 20px;
+  max-height: 400px;
+  object-fit: cover;
+}
+.divider {
+  height: 1px;
+  background: #eee;
+}

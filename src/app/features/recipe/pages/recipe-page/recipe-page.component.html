@@ -1,0 +1,73 @@
+<div class="recipe-page container my-8" *ngIf="recipe$ | async as recipe">
+  <div class="recipe-header mb-8">
+    <div class="title-section flex justify-between items-start">
+       <div>
+         <h1>{{ recipe.title }}</h1>
+         <div class="meta flex items-center gap-8 mt-4">
+           <div class="author flex items-center gap-4 mx-5">
+             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author">
+             <div>
+               <div class="name">{{ recipe.author }}</div>
+               <div class="date">{{ recipe.date | date }}</div>
+             </div>
+           </div>
+           <div class="divider"></div>
+           <div class="prep-time flex items-center gap-4">
+             <mat-icon>schedule</mat-icon>
+             <div>
+               <div class="label">PREP TIME</div>
+               <div class="val">{{ recipe.prepTime }} Minutes</div>
+             </div>
+           </div>
+           <div class="divider"></div>
+           <div class="cook-time flex items-center gap-4">
+             <mat-icon>schedule</mat-icon>
+             <div>
+               <div class="label">COOK TIME</div>
+               <div class="val">{{ recipe.cookTime }} Minutes</div>
+             </div>
+           </div>
+           <div class="divider"></div>
+           <div class="category flex items-center gap-4">
+             <mat-icon>restaurant</mat-icon>
+             <div>
+               <div class="val">{{ recipe.category }}</div>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+       <div class="actions flex gap-4">
+         <button mat-mini-fab class="action-btn"><mat-icon>share</mat-icon></button>
+       </div>
+    </div>
+    
+  </div>
+  
+  <div class="content-grid">
+    <div class="main-content">
+      <div class="hero-image-section mb-8">
+        <div class="main-image">
+          <img [src]="recipe.image" [alt]="recipe.title">
+          <!-- Play button overlay if video -->
+        </div>
+      </div>
+      
+      <p class="description mb-8">
+        {{ recipe.description }}
+      </p>
+
+      <app-ingredients 
+        [ingredients]="recipe.ingredients" 
+        [sauceIngredients]="recipe.sauceIngredients || []">
+      </app-ingredients>
+      
+      <app-directions [directions]="recipe.directions"></app-directions>
+    </div>
+    
+    <div class="sidebar">
+      <app-nutrition [nutrition]="recipe.nutrition"></app-nutrition>
+      <app-other-recipes [recipes]="(otherRecipes$ | async) || []"></app-other-recipes>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="recipe-list-container container">
+  <div class="header text-center mb-12">
+    <h2>Simple and tasty recipes</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq.</p>
+  </div>
+  
+  <div *ngIf="loading$ | async" class="flex justify-center my-8">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="error$ | async as error" class="text-center text-red-500 my-8">
+    <p>Error loading recipes: {{ error?.message || error }}</p>
+    <p>Please make sure you have restarted 'ng serve' after project structure changes.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8" *ngIf="!(loading$ | async) && !(error$ | async)">
+    <app-recipe-card *ngFor="let recipe of (recipes$ | async)?.slice(0, 9)" [recipe]="recipe"></app-recipe-card>
+  </div>
+</div>
