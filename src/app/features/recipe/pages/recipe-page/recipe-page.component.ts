@@ -10,6 +10,7 @@ import * as RecipeActions from '../../../../store/actions/recipe.actions';
 import { NutritionComponent } from '../../components/nutrition/nutrition.component';
 import { IngredientsComponent } from '../../components/ingredients/ingredients.component';
 import { DirectionsComponent } from '../../components/directions/directions.component';
+import { OtherRecipesComponent } from '../../components/other-recipes/other-recipes.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -17,10 +18,11 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-recipe-page',
   standalone: true,
   imports: [
-    CommonModule, 
-    NutritionComponent, 
-    IngredientsComponent, 
+    CommonModule,
+    NutritionComponent,
+    IngredientsComponent,
     DirectionsComponent,
+    OtherRecipesComponent,
     MatIconModule,
     MatButtonModule
   ],
@@ -69,6 +71,7 @@ import { MatButtonModule } from '@angular/material/button';
              <button mat-mini-fab class="action-btn"><mat-icon>share</mat-icon></button>
            </div>
         </div>
+        
       </div>
       
       <div class="hero-image-section mb-12 flex gap-8">
@@ -76,8 +79,9 @@ import { MatButtonModule } from '@angular/material/button';
           <img [src]="recipe.image" [alt]="recipe.title">
           <!-- Play button overlay if video -->
         </div>
-        <div class="nutrition-section flex-1">
+        <div class="nutrition-section flex-1 ">
           <app-nutrition [nutrition]="recipe.nutrition"></app-nutrition>
+          <app-other-recipes [recipes]="(otherRecipes$ | async) || []"></app-other-recipes>
         </div>
       </div>
       
@@ -95,28 +99,19 @@ import { MatButtonModule } from '@angular/material/button';
           <app-directions [directions]="recipe.directions"></app-directions>
         </div>
         
-        <div class="sidebar col-span-1">
-          <h3>Other Recipe</h3>
-          <div class="other-recipes-list">
-             <div class="other-recipe-card flex gap-4 mb-6" *ngFor="let r of otherRecipes$ | async">
-               <img [src]="r.image" class="thumb">
-               <div class="info">
-                 <h4>{{ r.title }}</h4>
-                 <div class="author">By {{ r.author }}</div>
-               </div>
-             </div>
-          </div>
-        </div>
+        
       </div>
-      
-    </div>
+
   `,
   styles: [`
     .my-8 { margin-top: 32px; margin-bottom: 32px; }
     .mb-8 { margin-bottom: 32px; }
     .mb-12 { margin-bottom: 48px; }
+    .gap-4 { gap: 16px; }
+    .gap-6 { gap: 24px; }
     .gap-8 { gap: 32px; }
     .gap-12 { gap: 48px; }
+    .flex-col { flex-direction: column; }
     
     h1 { font-size: 48px; margin-bottom: 16px; }
     
@@ -160,29 +155,6 @@ import { MatButtonModule } from '@angular/material/button';
       line-height: 1.8;
     }
     
-    .sidebar {
-      h3 { font-size: 24px; margin-bottom: 24px; }
-      
-      .other-recipe-card {
-        cursor: pointer;
-        .thumb {
-          width: 120px;
-          height: 80px;
-          border-radius: 12px;
-          object-fit: cover;
-        }
-        h4 {
-          font-size: 16px;
-          margin-bottom: 8px;
-          line-height: 1.4;
-        }
-        .author {
-          font-size: 12px;
-          color: var(--color-text-muted);
-        }
-      }
-    }
-    
     @media (max-width: 1024px) {
       .hero-image-section {
         flex-direction: column;
@@ -195,19 +167,28 @@ import { MatButtonModule } from '@angular/material/button';
 export class RecipePageComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private store = inject(Store);
-  
+
   recipe$: Observable<Recipe | null> = this.store.select(selectSelectedRecipe);
-  otherRecipes$: Observable<Recipe[]> = this.store.select(selectAllRecipes).pipe(
-    map(recipes => recipes.slice(0, 3)) // Just take first 3 for sidebar
+  otherRecipes$: Observable<Recipe[]> = combineLatest([
+    this.store.select(selectAllRecipes),
+    this.store.select(selectSelectedRecipe)
+  ]).pipe(
+    map(([recipes, currentRecipe]) =>
+      recipes
+        .filter(r => r.id !== currentRecipe?.id)
+        .slice(0, 3)
+    )
   );
 
   ngOnInit() {
     this.store.dispatch(RecipeActions.loadRecipes()); // Ensure recipes are loaded
-    
+
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
         this.store.dispatch(RecipeActions.selectRecipe({ id }));
+        // Scroll to top when recipe changes
+        window.scrollTo(0, 0);
       }
     });
   }
