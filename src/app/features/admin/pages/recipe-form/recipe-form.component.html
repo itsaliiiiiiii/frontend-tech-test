@@ -3,7 +3,7 @@
 </div>
 
 <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="recipe-form">
-  
+
   <div class="form-section">
     <h3>Basic Information</h3>
     <div class="grid-2">
@@ -79,28 +79,58 @@
     </div>
   </div>
 
-  <!-- Ingredients & Directions skipped for brevity in this iteration, 
-       users can manage JSON directly or we assume simple editor. 
-       Adding a simple JSON editor for complex arrays or just leaving them as is for now. 
-       Let's add a simple implementation for Ingredients as a text area (one per line) for simplicity 
-       to convert to array, or just use FormArray if I have time. 
-       Let's use FormArray for Ingredients. -->
-
   <div class="form-section">
     <div class="flex justify-between items-center mb-4">
       <h3>Ingredients</h3>
       <button type="button" mat-button color="primary" (click)="addIngredient()">+ Add Ingredient</button>
     </div>
-    
+
     <div formArrayName="ingredients">
-      <div *ngFor="let ing of ingredients.controls; let i=index" [formGroupName]="i" class="flex gap-2 items-center mb-2">
+      <div *ngFor="let ing of ingredients.controls; let i=index" [formGroupName]="i"
+        class="flex gap-2 items-center mb-2">
         <mat-form-field appearance="outline" class="flex-1">
           <mat-label>Name</mat-label>
-          <input matInput formControlName="name">
+          <input matInput formControlName="name" placeholder="e.g. 2 cups flour">
         </mat-form-field>
         <button type="button" mat-icon-button color="warn" (click)="removeIngredient(i)">
           <mat-icon>delete</mat-icon>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="flex justify-between items-center mb-4">
+      <h3>Directions</h3>
+      <button type="button" mat-button color="primary" (click)="addDirection()">+ Add Step</button>
+    </div>
+
+    <div formArrayName="directions">
+      <div *ngFor="let dir of directions.controls; let i=index" [formGroupName]="i"
+        class="direction-item mb-6 p-4 border rounded">
+        <div class="flex justify-between items-center mb-2">
+          <h4 class="m-0">Step {{ i + 1 }}</h4>
+          <button type="button" mat-icon-button color="warn" (click)="removeDirection(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+        <div class="grid-2">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="e.g. Preheat Oven">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Image URL (Optional)</mat-label>
+            <input matInput formControlName="image" placeholder="https://...">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" rows="3" placeholder="Describe the step..."></textarea>
+        </mat-form-field>
       </div>
     </div>
   </div>

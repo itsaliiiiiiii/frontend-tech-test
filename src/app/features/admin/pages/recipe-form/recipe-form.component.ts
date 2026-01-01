@@ -56,12 +56,16 @@ export class RecipeFormComponent implements OnInit {
         cholesterol: [0]
       }),
       ingredients: this.fb.array([]),
-      directions: this.fb.array([]) // Not implemented in UI for brevity, but model supports it
+      directions: this.fb.array([])
     });
   }
 
   get ingredients() {
     return this.recipeForm.get('ingredients') as FormArray;
+  }
+
+  get directions() {
+    return this.recipeForm.get('directions') as FormArray;
   }
 
   ngOnInit() {
@@ -71,6 +75,10 @@ export class RecipeFormComponent implements OnInit {
         this.isEditMode = true;
         this.recipeId = id;
         this.loadRecipe(id);
+      } else {
+        // Initialize with one empty ingredient and direction for better UX
+        this.addIngredient();
+        this.addDirection();
       }
     });
   }
@@ -108,6 +116,19 @@ export class RecipeFormComponent implements OnInit {
         }));
       });
     }
+
+    // Clear and repopulate directions
+    this.directions.clear();
+    if (recipe.directions) {
+      recipe.directions.sort((a, b) => a.step - b.step).forEach(dir => {
+        this.directions.push(this.fb.group({
+          step: [dir.step, Validators.required],
+          title: [dir.title, Validators.required],
+          description: [dir.description, Validators.required],
+          image: [dir.image || '']
+        }));
+      });
+    }
   }
 
   addIngredient() {
@@ -121,6 +142,24 @@ export class RecipeFormComponent implements OnInit {
     this.ingredients.removeAt(index);
   }
 
+  addDirection() {
+    const nextStep = this.directions.length + 1;
+    this.directions.push(this.fb.group({
+      step: [nextStep, Validators.required],
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      image: ['']
+    }));
+  }
+
+  removeDirection(index: number) {
+    this.directions.removeAt(index);
+    // Re-index steps
+    this.directions.controls.forEach((control, i) => {
+      control.patchValue({ step: i + 1 });
+    });
+  }
+
   onSubmit() {
     if (this.recipeForm.valid) {
       const formValue = this.recipeForm.value;
@@ -128,9 +167,7 @@ export class RecipeFormComponent implements OnInit {
         ...formValue,
         id: this.isEditMode ? this.recipeId! : Date.now().toString(),
         date: new Date().toISOString(),
-        // Default empty arrays for things we didn't implement fully in form
-        sauceIngredients: [],
-        directions: [] // Ideally should be collected from form
+        sauceIngredients: []
       };
 
       if (this.isEditMode) {

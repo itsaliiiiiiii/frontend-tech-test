@@ -1,7 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Recipe } from '../../../../shared/models/recipe.model';
 import { selectAllRecipes, selectRecipesLoading, selectRecipesError } from '../../../../store/selectors/recipe.selectors';
 import * as RecipeActions from '../../../../store/actions/recipe.actions';
@@ -17,7 +18,23 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 })
 export class RecipeListComponent implements OnInit {
   private store = inject(Store);
-  recipes$: Observable<Recipe[]> = this.store.select(selectAllRecipes);
+  
+  private categorySubject = new BehaviorSubject<string | null>(null);
+  
+  @Input() set category(value: string | null) {
+    this.categorySubject.next(value);
+  }
+
+  recipes$: Observable<Recipe[]> = combineLatest([
+    this.store.select(selectAllRecipes),
+    this.categorySubject
+  ]).pipe(
+    map(([recipes, category]) => {
+      if (!category) return recipes;
+      return recipes.filter(recipe => recipe.category === category);
+    })
+  );
+
   loading$: Observable<boolean> = this.store.select(selectRecipesLoading);
   error$: Observable<any> = this.store.select(selectRecipesError);
 

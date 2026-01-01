@@ -16,9 +16,18 @@ import { Observable } from 'rxjs';
 export class HomePageComponent implements OnInit {
   private recipeService = inject(RecipeService);
   showAll = false;
+  selectedCategory: string | null = null;
   categories$: Observable<Category[]> | undefined;
 
   ngOnInit() {
     this.categories$ = this.recipeService.getCategories();
+  }
+
+  toggleCategory(categoryName: string) {
+    if (this.selectedCategory === categoryName) {
+      this.selectedCategory = null;
+    } else {
+      this.selectedCategory = categoryName;
+    }
   }
 }
