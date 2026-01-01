@@ -36,5 +36,19 @@ export const recipeReducer = createReducer(
   on(RecipeActions.selectRecipe, (state, { id }) => ({
     ...state,
     selectedRecipeId: id
+  })),
+  on(RecipeActions.addRecipe, (state, { recipe }) => ({
+    ...state,
+    recipes: [...state.recipes, recipe]
+  })),
+  on(RecipeActions.updateRecipe, (state, { recipe }) => ({
+    ...state,
+    recipes: state.recipes.map(r => r.id === recipe.id ? recipe : r),
+    selectedRecipeId: state.selectedRecipeId === recipe.id ? recipe.id : state.selectedRecipeId
+  })),
+  on(RecipeActions.deleteRecipe, (state, { id }) => ({
+    ...state,
+    recipes: state.recipes.filter(r => r.id !== id),
+    selectedRecipeId: state.selectedRecipeId === id ? null : state.selectedRecipeId
   }))
 );

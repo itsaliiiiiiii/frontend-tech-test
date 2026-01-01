@@ -17,3 +17,19 @@ export const selectRecipe = createAction(
   '[Recipe] Select Recipe',
   props<{ id: string }>()
 );
+
+// CRUD Actions
+export const addRecipe = createAction(
+  '[Recipe] Add Recipe',
+  props<{ recipe: Recipe }>()
+);
+
+export const updateRecipe = createAction(
+  '[Recipe] Update Recipe',
+  props<{ recipe: Recipe }>()
+);
+
+export const deleteRecipe = createAction(
+  '[Recipe] Delete Recipe',
+  props<{ id: string }>()
+);
