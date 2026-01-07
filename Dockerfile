@@ -1,11 +1,15 @@
 # Stage 1: Build the Angular application
-FROM node:20-alpine as build
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
 # Copy package files and install dependencies
 COPY package*.json ./
-RUN npm ci
+RUN npm config set fetch-retry-mintimeout 20000 \
+    && npm config set fetch-retry-maxtimeout 120000 \
+    && npm config set fetch-timeout 300000 \
+    && rm -rf node_modules package-lock.json \
+    && npm install --legacy-peer-deps --no-audit
 
 # Copy the rest of the application code
 COPY . .
