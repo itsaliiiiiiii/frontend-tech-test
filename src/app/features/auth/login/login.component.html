@@ -1,0 +1,51 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo">
+        <span class="logo-text">DigitalSpeak</span>
+        <span class="logo-dot">.</span>
+      </div>
+      <h2>Welcome Back</h2>
+      <p class="subtitle">Please enter your details to sign in</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width custom-field">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" placeholder="Enter your username">
+          <mat-icon matSuffix>person_outline</mat-icon>
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width custom-field">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Enter your password">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage">
+        <mat-icon>error_outline</mat-icon>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading" class="submit-btn">
+          <span *ngIf="!isLoading">Sign In</span>
+          <div *ngIf="isLoading" class="spinner"></div>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

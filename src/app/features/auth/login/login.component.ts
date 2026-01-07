@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-login',
@@ -17,74 +18,17 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
-  template: `
-    <div class="login-container">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Username</mat-label>
-              <input matInput formControlName="username" placeholder="Enter username">
-              <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
-                Username is required
-              </mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Password</mat-label>
-              <input matInput formControlName="password" type="password" placeholder="Enter password">
-              <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-                Password is required
-              </mat-error>
-            </mat-form-field>
-
-            <div class="error-message" *ngIf="errorMessage">
-              {{ errorMessage }}
-            </div>
-
-            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">
-              {{ isLoading ? 'Logging in...' : 'Login' }}
-            </button>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  `,
-  styles: [`
-    .login-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-    }
-    mat-card {
-      width: 100%;
-      max-width: 400px;
-      padding: 20px;
-    }
-    .full-width {
-      width: 100%;
-      margin-bottom: 16px;
-    }
-    .error-message {
-      color: red;
-      margin-bottom: 16px;
-    }
-    button {
-      width: 100%;
-    }
-  `]
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   loginForm: FormGroup;
   isLoading = false;
   errorMessage = '';
+  hidePassword = true;
 
   constructor(
     private fb: FormBuilder,
