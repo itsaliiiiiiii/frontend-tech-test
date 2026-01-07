@@ -4,7 +4,7 @@
       Foodieland<span class="dot">.</span>
       <span class="badge">Admin</span>
     </div>
-    
+
     <nav>
       <a routerLink="/admin/recipes" routerLinkActive="active" class="nav-item">
         <mat-icon>restaurant_menu</mat-icon>
@@ -18,9 +18,13 @@
         <mat-icon>home</mat-icon>
         Back to Site
       </a>
+      <button (click)="logout()" class="nav-item">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
     </nav>
   </aside>
-  
+
   <main class="main-content">
     <router-outlet></router-outlet>
   </main>

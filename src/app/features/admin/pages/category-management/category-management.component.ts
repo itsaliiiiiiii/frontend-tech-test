@@ -36,7 +36,7 @@ import { CategoryService, Category } from '../../../../core/services/category.se
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let category">
-            <a mat-icon-button color="primary" [routerLink]="['/admin/categories/edit', category.id]">
+            <a mat-icon-button color="primary" [routerLink]="['/admin/categories', category.id, 'edit']">
               <mat-icon>edit</mat-icon>
             </a>
             <button mat-icon-button color="warn" (click)="deleteCategory(category)">
@@ -55,7 +55,7 @@ export class CategoryManagementComponent implements OnInit {
   categories: Category[] = [];
   displayedColumns: string[] = ['id', 'name', 'actions'];
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.loadCategories();

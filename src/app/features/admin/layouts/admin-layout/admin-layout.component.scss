@@ -48,6 +48,15 @@ nav {
   font-weight: 500;
   transition: all 0.2s;
   
+  // Reset button styles
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  
   &:hover {
     background: #f5f5f5;
     color: black;

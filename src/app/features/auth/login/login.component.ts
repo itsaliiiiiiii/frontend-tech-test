@@ -108,7 +108,7 @@ export class LoginComponent {
         },
         error: (err) => {
           this.isLoading = false;
-          this.errorMessage = 'Invalid credentials';
+          this.errorMessage = err.error?.message || 'Invalid credentials or access denied';
           console.error(err);
         }
       });
